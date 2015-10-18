@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<div class="ct-container ct-flex row middle edged fill">
+<div class="ct-container ct-flex row edged top wrap-s ct-flex-item fit">
 
-	<section class="ct-posts ct-flex col top fill">
+	<section class="ct-content ct-posts ct-flex col top fill padding-1">
 
 		<?php if (have_posts()) { ?>
 
@@ -12,7 +12,7 @@
 
 				<article class="ct-post ct-flex col top fill">
 
-					<div class="ct-flex row left middle">
+					<div class="ct-flex row edged middle">
 
 						<h2><?php the_title(); ?></h2>
 
@@ -32,7 +32,7 @@
 
 	</section>
 
-	<section class="ct-sidebar">
+	<section class="ct-sidebar ct-content padding-1">
 		<?php get_sidebar(); ?>
 	</section>
 

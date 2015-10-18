@@ -2,7 +2,7 @@
 
 	<?php if (!function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('Primary Sidebar') ) { ?>
 
-		<?php get_search_form(); ?>
+		<p>No content defined in this Sidebar</p>
 
 	<?php } ?>
 

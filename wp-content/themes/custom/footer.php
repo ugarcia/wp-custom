@@ -1,7 +1,7 @@
 
-		<footer>
+		<footer class="ct-footer padding-1 shadow-top">
 
-			<p class="no-margin padding-1 text-center">&copy; <?php bloginfo('name'); ?>, <?= date('Y'); ?>. All Rights Reserved</p>
+			<p class="no-margin text-center">&copy; <?php bloginfo('name'); ?>, <?= date('Y'); ?>. All Rights Reserved</p>
 
 		</footer>
 

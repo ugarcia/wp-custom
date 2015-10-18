@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<div class="ct-container ct-flex row">
+<div class="ct-container ct-flex row edged top wrap-s ct-flex-item fit">
 
-	<section class="ct-posts ct-flex col">
+	<section class="ct-content ct-posts ct-flex col top fill padding-1">
 
 		<?php if (have_posts()) { ?>
 
@@ -10,9 +10,9 @@
 
 				<?php the_post(); ?>
 
-				<article class="ct-post ct-flex col">
+				<article class="ct-post ct-flex col top fill">
 
-					<div class="ct-flex row">
+					<div class="ct-flex row edged middle">
 
 						<h2><?php the_title(); ?></h2>
 
@@ -22,7 +22,7 @@
 
 					</div>
 
-					<div class="ct-flex row">
+					<div class="ct-flex row edged middle">
 
 						<p>Posted in: <?php the_category(', '); ?> | <?php the_tags('Tagged with: ', ', '); ?></p>
 
@@ -46,7 +46,7 @@
 
 	</section>
 
-	<section class="ct-sidebar">
+	<section class="ct-sidebar ct-content padding-1">
 		<?php get_sidebar(); ?>
 	</section>
 

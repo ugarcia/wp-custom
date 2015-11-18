@@ -1,41 +1,44 @@
 <?php get_header(); ?>
 
-<div class="ct-container ct-flex row edged top wrap-s ct-flex-item fit">
+<div class="ct-wrapper h-center ct-flex-item fit">
 
-	<section class="ct-content ct-posts ct-flex col top fill padding-1">
+    <div class="ct-container ct-flex row edged top wrap-s ct-flex-item fit">
 
-		<?php if (have_posts()) { ?>
+        <section class="ct-content ct-posts ct-flex col top fill padding-1">
 
-			<?php while(have_posts()) { ?>
+            <?php if (have_posts()) { ?>
 
-				<?php the_post(); ?>
+                <?php while(have_posts()) { ?>
 
-				<article class="ct-post ct-flex col top fill">
+                    <?php the_post(); ?>
 
-					<div class="ct-flex row edged middle">
+                    <article class="ct-post ct-flex col top fill">
 
-						<h2><?php the_title(); ?></h2>
+                        <div class="ct-flex row edged middle">
 
-					</div>
+                            <h2><?php the_title(); ?></h2>
 
-					<?php the_content('Read More...'); ?>
+                        </div>
 
-				</article>
+                        <?php the_content('Read More...'); ?>
 
-			<?php } ?>
+                    </article>
 
-		<?php } else { ?>
+                <?php } ?>
 
-			<p><?php _e('No posts were found. Sorry!'); ?></p>
+            <?php } else { ?>
 
-		<?php } ?>
+                <p><?php _e('No posts were found. Sorry!'); ?></p>
 
-	</section>
+            <?php } ?>
 
-	<section class="ct-sidebar ct-content padding-1">
-		<?php get_sidebar(); ?>
-	</section>
+        </section>
 
+        <section class="ct-sidebar ct-content padding-1">
+            <?php get_sidebar(); ?>
+        </section>
+
+    </div>
 </div>
 
 <?php get_footer(); ?>

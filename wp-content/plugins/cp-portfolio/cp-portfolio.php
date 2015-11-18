@@ -23,20 +23,57 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-
-function cp_portfolio_install() {
-
+/**
+ * Plugin activation
+ */
+function cp_portfolio_install()
+{
 	global $wp_version;
 
 	if ( version_compare( $wp_version, '4.1', '<' ) ) {
 		wp_die( 'This plugin requires WordPress version 4.1 or higher.' );
 	}
+
+    cp_register_portfolio_items();
+
+    flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'cp_portfolio_install' );
 
-
-function cp_portfolio_deactivate() {
+/**
+ * Plugin deactivation
+ */
+function cp_portfolio_deactivate()
+{
 
 }
 register_deactivation_hook( __FILE__, 'cp_portfolio_deactivate' );
 
+/**
+ * Portfolio Items custom post type registration
+ */
+function cp_register_portfolio_items()
+{
+    register_post_type( 'portfolio_items',
+        array(
+            'labels' => array(
+                'name' => __('Portfolio Items', 'textdomain'),
+                'singular_name' => __('Portfolio Item', 'textdomain'),
+                'add_new_item' => __('Add New Portfolio Item', 'textdomain'),
+                'edit_item' => __('Edit Portfolio Item', 'textdomain'),
+                'new_item' => __('New Portfolio Item', 'textdomain'),
+                'view_item' => __('View Portfolio Item', 'textdomain'),
+                'search_items' => __('Search Portfolio Items', 'textdomain'),
+                'not_found' => __(' No Portfolio Items found', 'textdomain'),
+                'not_found_in_thrash' => __(' No Portfolio Items found in thrash', 'textdomain')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-portfolio',
+            'taxonomies' => array('category'),
+            'rewrite' => array('slug' => 'portfolio'),
+            'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'revisions')
+        )
+    );
+}
+add_action( 'init', 'cp_register_portfolio_items' );
